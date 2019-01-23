@@ -23,19 +23,24 @@ def main():
 
     # Try 10 game.
     for i in range(10):
+        
+        print("[Episode {}]".format(i))
+        
         # Initialize position of agent.
         state = env.reset()
         total_reward = 0
         done = False
-
+        
         while not done:
             action = agent.policy(state)
             next_state, reward, done = env.step(action)
             total_reward += reward
+            print("    {0}=>{1} {2:.2f}".format(state, next_state, reward))
+
             state = next_state
-
-        print("Episode {}: Agent gets {} reward.".format(i, total_reward))
-
+            
+        print("  Agent gets {0:.2f} reward.".format(total_reward))
+        print()
 
 if __name__ == "__main__":
     main()

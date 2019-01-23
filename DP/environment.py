@@ -9,7 +9,7 @@ class State():
         self.column = column
 
     def __repr__(self):
-        return "<State: [{}, {}]>".format(self.row, self.column)
+        return "({}, {})".format(self.row, self.column)
 
     def clone(self):
         return State(self.row, self.column)
